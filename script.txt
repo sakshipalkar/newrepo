@@ -1,0 +1,28 @@
+Account
+304402741208
+
+KMS key ID
+alias/aws/rds
+
+
+#Attaching AdministratorAccess
+#Attaching CloudWatchFullAccess
+
+
+
+export POLICYARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].{ARN:Arn}' --output text)       ~
+echo $POLICYARNexport POLICYARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].{ARN:Arn}' --output text)       ~
+echo $POLICYARN
+
+aws iam attach-user-policy --user-name  sakshi --policy-arn $POLICYARN
+aws iam list-attached-user-policies --user-name  sakshi
+
+export POLICYARN=$(aws iam list-policies --query 'Policies[?PolicyName==`Delete_DashBoard12`].{ARN:Arn}' --output text)       ~
+echo $POLICYARNexport POLICYARN=$(aws iam list-policies --query 'Policies[?PolicyName==`Delete_DashBoard12`].{ARN:Arn}' --output text)       ~
+echo $POLICYARN
+
+aws iam attach-user-policy --user-name  sakshi --policy-arn $POLICYARN
+aws iam list-attached-user-policies --user-name  sakshi
+
+
+s
